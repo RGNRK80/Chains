@@ -5,25 +5,25 @@ public class Service {
         int rezult=-1;
         String[] dskStr=Integer.toString(dsk).split("");
         if (rad==0) {rezult=dsk;  return rezult;}
-        if (rad==1) {
+        if (rad==1 || rad==-3 || rad==-5 ) {
             String rez=dskStr[6]+dskStr[3]+dskStr[0]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[8]+dskStr[5]+dskStr[2];
             rezult=Integer.parseInt(rez); return rezult;}
-        if (rad==2) {
+        if (rad==2 || rad==-2) {
             String rez=dskStr[8]+dskStr[7]+dskStr[6]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[2]+dskStr[1]+dskStr[0];
             rezult=Integer.parseInt(rez); return rezult;}
-        if (rad==3) {
+        if (rad==3 || rad==-1) {
             String rez=dskStr[2]+dskStr[5]+dskStr[8]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[0]+dskStr[3]+dskStr[6];
             rezult=Integer.parseInt(rez); return rezult;}
-        if (rad==4) {
+        if (rad==4 || rad==-4) {
             String rez=dskStr[2]+dskStr[1]+dskStr[0]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[8]+dskStr[7]+dskStr[6];
             rezult=Integer.parseInt(rez); return rezult;}
-        if (rad==5) {
+        if (rad==5 ) {
             String rez=dskStr[8]+dskStr[5]+dskStr[2]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[6]+dskStr[3]+dskStr[0];
             rezult=Integer.parseInt(rez); return rezult;}
-        if (rad==6) {
+        if (rad==6 || rad==-6) {
             String rez=dskStr[6]+dskStr[7]+dskStr[8]+dskStr[3]+dskStr[4]+dskStr[5]+dskStr[0]+dskStr[1]+dskStr[2];
             rezult=Integer.parseInt(rez); return rezult;}
-        if (rad==7) {
+        if (rad==7 || rad==-7) {
             String rez=dskStr[0]+dskStr[3]+dskStr[6]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[2]+dskStr[5]+dskStr[8];
             rezult=Integer.parseInt(rez); return rezult;}
 
@@ -39,7 +39,7 @@ public class Service {
                 (d[6]=='3' && d[7]=='3' &&d[8]=='3' )  ||
                 (d[0]=='3' && d[3]=='3' &&d[6]=='3' )  ||
                 (d[1]=='3' && d[4]=='3' &&d[7]=='3' )  ||
-                (d[2]=='3' && d[5]=='3' &&d[9]=='3' )  ||
+                (d[2]=='3' && d[5]=='3' &&d[8]=='3' )  ||
                 (d[0]=='3' && d[4]=='3' &&d[8]=='3' )  ||
                 (d[2]=='3' && d[4]=='3' &&d[6]=='3' )
         ) return 1;

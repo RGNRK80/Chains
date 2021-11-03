@@ -84,7 +84,14 @@ public class Main {
             for (int i=0; i<8;i++) {
                 int check = Service.rotate(desk, i);
                 if (keys.keymap.containsKey(check)) {
-                desk = Service.rotate(keys.keymap.get(check),i); // тут не i?
+                   /* System.out.println("проверка вращением______________");
+                    Service.showturn(check);
+                    System.out.println(" алгоритм поворота " + i);
+                    System.out.println("шаблон по ключу :");
+                    Service.showturn(keys.keymap.get(check));
+                    System.out.println("_______________________________");*/
+
+                desk = Service.rotate(keys.keymap.get(check),-i);
                 break;
                 }
             }
