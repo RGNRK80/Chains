@@ -47,7 +47,7 @@ public class Main {
             desk1=desk1/10;
 
             }
-            //System.out.println(Arrays.toString(deskChek));
+
 
             int checkNumber=0;
             switch (cell) {
