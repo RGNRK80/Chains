@@ -2,6 +2,7 @@ package by.overone.lesson_oxo;
 
 import by.overone.lesson_oxo.bd.Keys;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -17,20 +18,19 @@ public class Main {
         while (condition) {
             showturn(desk);
 
-            // проверка на концовку
+            // проверка на доски концовку
             if (checkToEnd(desk)==1) {
                 System.out.println("you lose");
                 condition=false;
                 break;
             }
-
            if (checkToEnd(desk)==0) {
                 System.out.println("no winner");
                 condition=false;
                 break;
             }
 
-
+           // ввод числа и проверка
             if (scanner.hasNextInt()) {
                 cell=scanner.nextInt();
             } else {
@@ -40,18 +40,47 @@ public class Main {
 
             //проверка ячейки на соответствие 1-9 и наличие 1 в месте ввода
 
+            int desk1=desk;
+            int[] deskChek=new int[9];
+            for (int i=8; i>=0;i--){
+            deskChek[i]=desk1%10;
+            desk1=desk1/10;
+
+            }
+            System.out.println(Arrays.toString(deskChek));
+
+            int checkNumber=0;
+            switch (cell) {
+               case 1: checkNumber=6;break;
+               case 2: checkNumber=7;break;
+               case 3: checkNumber=8;break;
+               case 4: checkNumber=3;break;
+               case 5: checkNumber=4;break;
+               case 6: checkNumber=5;break;
+               case 7: checkNumber=0;break;
+               case 8: checkNumber=1;break;
+               case 9: checkNumber=2;break;
+            }
+
+            System.out.println(checkNumber);
+            System.out.println(deskChek[checkNumber]);
+
+            if (cell>9 || cell<1) {System.out.println("try again"); continue;}
+            if (deskChek[checkNumber]!=1) {System.out.println("try again"); continue;}
+
+
 
             // ввод ячейки
             switch (cell) {
-                case 1: {desk+=100; break;}
-                case 2: {desk+=10; break;}
-                case 3: {desk+=1; break;}
-                case 4: {desk+=100000; break;}
-                case 5: {desk+=10000; break;}
-                case 6: {desk+=1000; break;}
-                case 7: {desk+=100000000; break;}
-                case 8: {desk+=10000000; break;}
-                case 9: {desk+=1000000; break;}
+                case 1: desk+=100; break;
+                case 2: desk+=10; break;
+                case 3: desk+=1; break;
+                case 4: desk+=100000; break;
+                case 5: desk+=10000; break;
+                case 6: desk+=1000; break;
+                case 7: desk+=100000000; break;
+                case 8: desk+=10000000; break;
+                case 9: desk+=1000000; break;
             }
 
             // сравнение
@@ -63,10 +92,6 @@ public class Main {
                     break;
                 }
             }
-
-
-
-
 
         }
     }
@@ -84,15 +109,12 @@ public class Main {
                 (d[2]=='3' && d[4]=='3' &&d[6]=='3' )
         ) return 1;
 
-
         int cellcheck=0;
         for (int i=0; i<d.length; i++) {
             if (d[i]=='1') {cellcheck+=1;}
         }
 
-
         if (cellcheck>0) {return -1;}
-
         return 0;
     }
 
@@ -117,30 +139,30 @@ public class Main {
     public static int rotate (int dsk,int rad){
         int rezult=-1;
         String[] dskStr=Integer.toString(dsk).split("");
-        if (rad==0) {rezult=dsk; return rezult;}
+        if (rad==0) {rezult=dsk; System.out.println("---" + rad); return rezult;}
         if (rad==1) {
             String rez=dskStr[6]+dskStr[3]+dskStr[0]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[8]+dskStr[5]+dskStr[2];
-            rezult=Integer.parseInt(rez);return rezult;}
+            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
         if (rad==2) {
             String rez=dskStr[8]+dskStr[7]+dskStr[6]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[2]+dskStr[1]+dskStr[0];
-            rezult=Integer.parseInt(rez);return rezult;}
+            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
         if (rad==3) {
             String rez=dskStr[2]+dskStr[5]+dskStr[8]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[0]+dskStr[3]+dskStr[6];
-            rezult=Integer.parseInt(rez);return rezult;}
+            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
         if (rad==4) {
             String rez=dskStr[2]+dskStr[1]+dskStr[0]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[8]+dskStr[7]+dskStr[6];
-            rezult=Integer.parseInt(rez);return rezult;}
+            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
         if (rad==5) {
             String rez=dskStr[8]+dskStr[5]+dskStr[2]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[6]+dskStr[3]+dskStr[0];
-            rezult=Integer.parseInt(rez);return rezult;}
+            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
         if (rad==6) {
             String rez=dskStr[6]+dskStr[7]+dskStr[8]+dskStr[3]+dskStr[4]+dskStr[5]+dskStr[0]+dskStr[1]+dskStr[2];
-            rezult=Integer.parseInt(rez);return rezult;}
+            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
         if (rad==7) {
             String rez=dskStr[0]+dskStr[3]+dskStr[6]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[2]+dskStr[5]+dskStr[8];
-            rezult=Integer.parseInt(rez);return rezult;}
+            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
 
-    return rezult;
+    return -1;
     }
 
 
