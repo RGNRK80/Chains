@@ -8,15 +8,28 @@ public class Main {
     public static void main(String[] args) {
         Keys keys=new Keys();
         Scanner scanner=new Scanner(System.in);
-        System.out.println("use number of as calculator");
+        System.out.println("use numbers as calculator");
         System.out.println("[7][8][9]\n[4][5][6]\n[1][2][3]");
         boolean condition = true;
         int desk=111111111;
         int cell=0;
 
         while (condition) {
-            check();  // проверка на концовку
             showturn(desk);
+
+            // проверка на концовку
+            if (checkToEnd(desk)==1) {
+                System.out.println("you lose");
+                condition=false;
+                break;
+            }
+
+           if (checkToEnd(desk)==0) {
+                System.out.println("no winner");
+                condition=false;
+                break;
+            }
+
 
             if (scanner.hasNextInt()) {
                 cell=scanner.nextInt();
@@ -43,13 +56,12 @@ public class Main {
 
             // сравнение
 
-            for (int i=0; i<4;i++){
-            if (keys.keymap.containsKey(rotate(desk,i)))
-            {
-                desk=keys.keymap.get(rotate(desk,i));
-                break;
-            }
-
+            for (int i=0; i<8;i++) {
+                int check = rotate(desk, i);
+                if (keys.keymap.containsKey(check)) {
+                    desk = rotate(keys.keymap.get(check),i);
+                    break;
+                }
             }
 
 
@@ -59,7 +71,30 @@ public class Main {
         }
     }
 
-    public static void check (){}
+    public static int checkToEnd (int desk){
+        char[] d;
+        d=Integer.toString(desk).toCharArray();
+        if (    (d[0]=='3' && d[1]=='3' && d[2]=='3') ||
+                (d[3]=='3' && d[4]=='3' && d[5]=='3') ||
+                (d[6]=='3' && d[7]=='3' &&d[8]=='3' )  ||
+                (d[0]=='3' && d[3]=='3' &&d[6]=='3' )  ||
+                (d[1]=='3' && d[4]=='3' &&d[7]=='3' )  ||
+                (d[2]=='3' && d[5]=='3' &&d[9]=='3' )  ||
+                (d[0]=='3' && d[4]=='3' &&d[8]=='3' )  ||
+                (d[2]=='3' && d[4]=='3' &&d[6]=='3' )
+        ) return 1;
+
+
+        int cellcheck=0;
+        for (int i=0; i<d.length; i++) {
+            if (d[i]=='1') {cellcheck+=1;}
+        }
+
+
+        if (cellcheck>0) {return -1;}
+
+        return 0;
+    }
 
     public static void showturn (int turn){
         System.out.println("--your turn--");
@@ -82,16 +117,28 @@ public class Main {
     public static int rotate (int dsk,int rad){
         int rezult=-1;
         String[] dskStr=Integer.toString(dsk).split("");
-        if (rad==0) {rezult=dsk;}
+        if (rad==0) {rezult=dsk; return rezult;}
         if (rad==1) {
             String rez=dskStr[6]+dskStr[3]+dskStr[0]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[8]+dskStr[5]+dskStr[2];
-            rezult=Integer.parseInt(rez);}
+            rezult=Integer.parseInt(rez);return rezult;}
         if (rad==2) {
             String rez=dskStr[8]+dskStr[7]+dskStr[6]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[2]+dskStr[1]+dskStr[0];
-            rezult=Integer.parseInt(rez);}
+            rezult=Integer.parseInt(rez);return rezult;}
         if (rad==3) {
             String rez=dskStr[2]+dskStr[5]+dskStr[8]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[0]+dskStr[3]+dskStr[6];
-            rezult=Integer.parseInt(rez);}
+            rezult=Integer.parseInt(rez);return rezult;}
+        if (rad==4) {
+            String rez=dskStr[2]+dskStr[1]+dskStr[0]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[8]+dskStr[7]+dskStr[6];
+            rezult=Integer.parseInt(rez);return rezult;}
+        if (rad==5) {
+            String rez=dskStr[8]+dskStr[5]+dskStr[2]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[6]+dskStr[3]+dskStr[0];
+            rezult=Integer.parseInt(rez);return rezult;}
+        if (rad==6) {
+            String rez=dskStr[6]+dskStr[7]+dskStr[8]+dskStr[3]+dskStr[4]+dskStr[5]+dskStr[0]+dskStr[1]+dskStr[2];
+            rezult=Integer.parseInt(rez);return rezult;}
+        if (rad==7) {
+            String rez=dskStr[0]+dskStr[3]+dskStr[6]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[2]+dskStr[5]+dskStr[8];
+            rezult=Integer.parseInt(rez);return rezult;}
 
     return rezult;
     }
