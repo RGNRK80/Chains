@@ -1,9 +1,12 @@
 package by.overone.lesson_oxo;
 
+import by.overone.lesson_oxo.bd.Keys;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Keys keys=new Keys();
         Scanner scanner=new Scanner(System.in);
         System.out.println("use number of as calculator");
         System.out.println("[7][8][9]\n[4][5][6]\n[1][2][3]");
@@ -40,6 +43,15 @@ public class Main {
 
             // сравнение
 
+            for (int i=0; i<4;i++){
+            if (keys.keymap.containsKey(rotate(desk,i)))
+            {
+                desk=keys.keymap.get(rotate(desk,i));
+                break;
+            }
+
+            }
+
 
 
 
@@ -67,7 +79,7 @@ public class Main {
         }
     }
 
-    public  int rotate (int dsk,int rad){
+    public static int rotate (int dsk,int rad){
         int rezult=-1;
         String[] dskStr=Integer.toString(dsk).split("");
         if (rad==0) {rezult=dsk;}
