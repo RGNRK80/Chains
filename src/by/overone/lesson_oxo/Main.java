@@ -47,7 +47,7 @@ public class Main {
             desk1=desk1/10;
 
             }
-            System.out.println(Arrays.toString(deskChek));
+            //System.out.println(Arrays.toString(deskChek));
 
             int checkNumber=0;
             switch (cell) {
@@ -62,8 +62,8 @@ public class Main {
                case 9: checkNumber=2;break;
             }
 
-            System.out.println(checkNumber);
-            System.out.println(deskChek[checkNumber]);
+            //System.out.println(checkNumber);
+            //System.out.println(deskChek[checkNumber]);
 
             if (cell>9 || cell<1) {System.out.println("try again"); continue;}
             if (deskChek[checkNumber]!=1) {System.out.println("try again"); continue;}
@@ -89,7 +89,8 @@ public class Main {
                 int check = rotate(desk, i);
                 if (keys.keymap.containsKey(check)) {
                     desk = rotate(keys.keymap.get(check),i);
-                    break;
+                    i=8;
+                    //break;
                 }
             }
 
