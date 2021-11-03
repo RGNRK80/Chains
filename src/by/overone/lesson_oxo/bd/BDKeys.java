@@ -2,10 +2,10 @@ package by.overone.lesson_oxo.bd;
 
 import java.util.HashMap;
 
-public class Keys {
+public class BDKeys {
     public HashMap<Integer,Integer> keymap = new HashMap();
 
-    public Keys() {
+    public BDKeys() {
         keymap.put(111121111, 311121111);
         keymap.put(211111111, 211131111);
         keymap.put(111211111, 111231111);
@@ -80,11 +80,10 @@ public class Keys {
         keymap.put(321231211, 321231213);
 
         keymap.put(113232112, 113232312);
-        keymap.put(113232111, 113232311);
-        keymap.put(113232111, 113232321);
-        keymap.put(113232121, 313232211);
-        keymap.put(113232211, 223232311);
-
+        keymap.put(123232111, 123232311);
+        keymap.put(113232121, 113232321);
+        keymap.put(113232211, 313232211);
+        keymap.put(213232111, 213232311);
 
         keymap.put(322122331, 322122333);
         keymap.put(322121332, 322321332);
