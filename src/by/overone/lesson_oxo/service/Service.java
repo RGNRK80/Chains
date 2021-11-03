@@ -4,28 +4,28 @@ public class Service {
     public static int rotate (int dsk,int rad){
         int rezult=-1;
         String[] dskStr=Integer.toString(dsk).split("");
-        if (rad==0) {rezult=dsk; System.out.println("---" + rad); return rezult;}
+        if (rad==0) {rezult=dsk;  return rezult;}
         if (rad==1) {
             String rez=dskStr[6]+dskStr[3]+dskStr[0]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[8]+dskStr[5]+dskStr[2];
-            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
+            rezult=Integer.parseInt(rez); return rezult;}
         if (rad==2) {
             String rez=dskStr[8]+dskStr[7]+dskStr[6]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[2]+dskStr[1]+dskStr[0];
-            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
+            rezult=Integer.parseInt(rez); return rezult;}
         if (rad==3) {
             String rez=dskStr[2]+dskStr[5]+dskStr[8]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[0]+dskStr[3]+dskStr[6];
-            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
+            rezult=Integer.parseInt(rez); return rezult;}
         if (rad==4) {
             String rez=dskStr[2]+dskStr[1]+dskStr[0]+dskStr[5]+dskStr[4]+dskStr[3]+dskStr[8]+dskStr[7]+dskStr[6];
-            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
+            rezult=Integer.parseInt(rez); return rezult;}
         if (rad==5) {
             String rez=dskStr[8]+dskStr[5]+dskStr[2]+dskStr[7]+dskStr[4]+dskStr[1]+dskStr[6]+dskStr[3]+dskStr[0];
-            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
+            rezult=Integer.parseInt(rez); return rezult;}
         if (rad==6) {
             String rez=dskStr[6]+dskStr[7]+dskStr[8]+dskStr[3]+dskStr[4]+dskStr[5]+dskStr[0]+dskStr[1]+dskStr[2];
-            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
+            rezult=Integer.parseInt(rez); return rezult;}
         if (rad==7) {
             String rez=dskStr[0]+dskStr[3]+dskStr[6]+dskStr[1]+dskStr[4]+dskStr[7]+dskStr[2]+dskStr[5]+dskStr[8];
-            rezult=Integer.parseInt(rez);System.out.println("---" + rad); return rezult;}
+            rezult=Integer.parseInt(rez); return rezult;}
 
         return -1;
     }
